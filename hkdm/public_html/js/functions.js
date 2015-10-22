@@ -14,7 +14,7 @@ var counter = 0;
 $(function() {
     var test = document.getElementById("div_1");
     
-    setInterval( function(){setColor(test, counter, colors); counter++;}, 1);
+    setInterval( function(){setColor(test, counter, colors); counter++;}, 100);
     
   
 });

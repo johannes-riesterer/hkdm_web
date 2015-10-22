@@ -16,17 +16,32 @@ sdsd
 
  */
 
-var n = 1000000;
+var n = 10;
 //var sNumber =sum(n);
 var lNumber = loopSum(n);
 
-//console.log(sNumber);
-console.log(lNumber);
+var field = [ [1,2,3] , [1,2,3], [1,2,3]];
+
+
+//console.
+//log(sNumber);
+//console.log(lNumber);
+logFieldToConsole(field);
+
 
 function logNameToConsole(name, lastName) {
          var text = "Hello my name is " + name + " " + lastName;
          console.log(text);
 }
+
+function logFieldToConsole(field) {
+    for(var i = 0; i < field.length; i++) {
+        console.log(field[i]);
+        field[i] = i;
+        console.log(field[i]);
+    }
+}
+
 
 function myFavoriteNumber() {
     return 5;

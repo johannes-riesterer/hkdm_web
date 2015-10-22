@@ -8,7 +8,9 @@ and open the template in the editor.
   <head>
     <title>Sternschlager</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+ 
   </head>
+    <noscript><div id= "noscript">This site requires JavaScript.</div></noscript>
   <body style='background: #000'>
     <canvas id='display' width='1' height='1' />
 
@@ -78,6 +80,7 @@ and open the template in the editor.
       function frame() {
         requestAnimationFrame(frame);
         ctx.clearRect(0, 0, width, height);
+    
         for (var i = 0; i < particles.length; i++) {
           particles[i].attract(mouse.x, mouse.y);
           particles[i].integrate();
@@ -99,5 +102,7 @@ and open the template in the editor.
 
     </script>
   
+    
+    
   </body>
 </html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+    </head>
+    <body>
+            <noscript><div id= "noscript">This site requires JavaScript.</div></noscript>
+
+        <script>
+        function Car(color) {
+            this.speed = 0;
+            this.steeringAngle = 0;
+            this.color = color;
+        }  
+        
+        Car.prototype.accelerate  = function(acceleration){
+            this.speed = this.speed + acceleration;
+        }
+        
+        var myCar = new Car('red');
+        console.log(myCar.color);
+         
+        var yourCar = new Car('blue');
+         console.log(yourCar.color);
+        
+        yourCar.accelerate(9);
+         yourCar.accelerate(10);
+         
+         
+         myCar.accelerate(100);
+        console.log(myCar.speed);
+        
+        
+        console.log(yourCar.speed);
+        
+        </script>
+            
+        
+        <div>TODO write content</div>
+    </body>
+</html>

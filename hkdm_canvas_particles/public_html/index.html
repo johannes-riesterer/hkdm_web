@@ -17,6 +17,9 @@ and open the template in the editor.
     <script>
 
       var DAMPING = 1;
+      
+//---------------------------------------------
+//Prototyp Particel
 
       function Particle(x, y) {
         this.x = this.oldX = x;
@@ -27,14 +30,19 @@ and open the template in the editor.
         this.f_y = 0.0;
       }
 
+
+
       Particle.prototype.integrate = function() {
         this.vel_x = this.vel_x + 10*this.f_x;
         this.vel_y = this.vel_y + 10*this.f_y;
-         this.vel_x *= 0.9;
+        
+        this.vel_x *= 0.9;
         this.vel_y *= 0.9;
+       
         this.oldX = this.x;
         this.oldY = this.y;
-        this.x += 10*this.vel_x;
+        
+        this.x = this.x + 10*this.vel_x;
         this.y += 10*this.vel_y;
       };
 
@@ -46,44 +54,67 @@ and open the template in the editor.
         this.f_y = dy / (distance*distance);
       };
 
+
+      //method to draw the particle
       Particle.prototype.draw = function(color) {
         ctx.strokeStyle = color;
-        ctx.lineWidth = 12;
+        ctx.lineWidth = 20;
         ctx.beginPath();
-        ctx.moveTo(this.oldX, this.oldY);
+       
+        //ctx.moveTo(this.oldX, this.oldY);
         ctx.lineTo(this.x, this.y);
+        ctx.lineTo(this.x +20, this.y +20);
         ctx.stroke();
  
              
       };
+//-----------------------------------------------------
 
+      //get html5 canvas
       var display = document.getElementById('display');
+     
+    
+    
       var ctx = display.getContext('2d');
+      
+      
+      
+      //instantiate a number of Particles
       var particles = [];
+      
       var width = display.width = window.innerWidth;
       var height = display.height = window.innerHeight;
-      var mouse = { x: width * 0.5, y: height * 0.5 };
-
+      
+      var mouse = { x : width * 0.5, y : height * 0.5 };
+    
+      
       for (var i = 0; i < 1000; i++) {
         particles[i] = new Particle(Math.random() * width, Math.random() * height);
       }
+      
 
       display.addEventListener('mousemove', onMousemove);
 
       function onMousemove(e) {
         mouse.x = e.clientX;
         mouse.y = e.clientY;
+        console.log("x:" + mouse.x);
+                console.log("y:" + mouse.y)
       }
 
       requestAnimationFrame(frame);
 
       function frame() {
+        
         requestAnimationFrame(frame);
+        
         ctx.clearRect(0, 0, width, height);
     
         for (var i = 0; i < particles.length; i++) {
           particles[i].attract(mouse.x, mouse.y);
-          particles[i].integrate();
+          
+            particles[i].integrate();
+          
           if(i %5== 0)
               particles[i].draw('#ED145A');
           else if (i %5== 1)

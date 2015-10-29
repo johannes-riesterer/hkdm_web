@@ -1,1 +1,1 @@
-# Kursmaterial für die Vorlesung Webprogrammierung an der HKDM Freiburg gehalten von von Dr. Johannes Riesterer
+# Kursmaterial für die Vorlesung Webprogrammierung an der HKDM Freiburg gehalten von  Dr. Johannes Riesterer

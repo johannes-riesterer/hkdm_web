@@ -4,9 +4,36 @@
  * and open the template in the editor.
  */
 
-
+var video;
+var videocontainer;
 //on document ready
 $(function() {
- var video = Document.getElementBy("video");    
+    video = document.getElementById('video');   
+   videocontainer =  document.getElementById('videocontainer');   
+   onResize();
+    
+  var body = Document.body;  
+  window.addEventListener('resize', onResize);
 }
 );
+
+function onResize(event){
+      var windowHeight = $(window).height();
+      var windowWidth = $(window).width();
+      var videoHeight = windowHeight;
+      var videoWidth = 1.78 * videoHeight;
+      
+      if(windowWidth >  1.78 * windowHeight) {
+          videocontainer.style.width =  windowWidth.toString() + "px";
+          videocontainer.style.height = (0.57* windowWidth).toString() + "px";
+          
+      }
+      else if(windowHeight > 0.56* windowWidth) {
+          videocontainer.style.height =  windowHeight.toString() + "px";
+          videocontainer.style.width = (1.79* windowHeight).toString() + "px";
+          
+      }
+//      videocontainer.style.height = window.height;
+//      videocontainer.style.width = 1.78* window.height;
+ 
+}

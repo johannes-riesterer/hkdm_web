@@ -20,8 +20,7 @@ $(function() {
 function onResize(event){
       var windowHeight = $(window).height();
       var windowWidth = $(window).width();
-      var videoHeight = windowHeight;
-      var videoWidth = 1.78 * videoHeight;
+ 
       
       if(windowWidth >  1.78 * windowHeight) {
           videocontainer.style.width =  windowWidth.toString() + "px";

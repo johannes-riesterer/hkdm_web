@@ -24,12 +24,20 @@ function onResize(event){
       
       if(windowWidth >  1.78 * windowHeight) {
           videocontainer.style.width =  windowWidth.toString() + "px";
-          videocontainer.style.height = (0.57* windowWidth).toString() + "px";
-          
+          videocontainer.style.height = ((9/16)* windowWidth).toString() + "px";
+          var deltah = (0.57* windowWidth - windowHeight)/2.0;
+           videocontainer.style.top =  "-" +  deltah.toString() + "px";
+           deltaw = 0.0;
+          videocontainer.style.left =   deltaw.toString() + "px";
       }
       else if(windowHeight > 0.56* windowWidth) {
           videocontainer.style.height =  windowHeight.toString() + "px";
           videocontainer.style.width = (1.79* windowHeight).toString() + "px";
+           var deltah = 0.0;
+             videocontainer.style.top =   deltah.toString() + "px";
+             var deltaw = (1.79 * windowHeight - windowWidth)/2.0;
+             videocontainer.style.left =  "-" +  deltaw.toString() + "px";
+          
           
       }
 //      videocontainer.style.height = window.height;

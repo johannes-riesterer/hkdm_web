@@ -1,0 +1,38 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 12.11.2015, 14:30:19
+    Author     : johannesriesterer
+*/
+
+.element_1 {
+    position: relative;
+  width: 100%;
+  height: 50%;
+  animation: pulse 4s infinite;
+ }
+.element_2 {
+    position: relative;
+  width: 100%;
+  height: 50%;
+  animation: pulse 1s infinite;
+}
+@keyframes pulse {
+  0% {
+    background-color: #8DDDC2;
+     width:0%;
+  }
+  100% {
+    background-color: #946EBB;
+     width:100%;
+  }
+}
+
+
+html,
+body {
+  height: 100%;
+}

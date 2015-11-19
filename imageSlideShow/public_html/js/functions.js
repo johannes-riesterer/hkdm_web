@@ -10,8 +10,22 @@ var context;
 $(function() {
     canvas = document.getElementById('slideshow'),
     context = canvas.getContext('2d');
-    base_image = new Image();
-    base_image.src = "images/image1.jpg";
 
-    context.drawImage(base_image, 0, 0);
+    base_image = new Image();
+    base_image.src = "./images/image2.jpg";
+
+    
+    var img=document.getElementById("scream");
+    
+    /*
+    img.src= "./images/image2.jpg";
+   img.width = "100"
+   img.height = "100"
+    var foo = document.getElementById("cache");
+    foo.appendChild(img);
+    */
+    
+    context.drawImage(scream, 0, 0);
+
+    
 });

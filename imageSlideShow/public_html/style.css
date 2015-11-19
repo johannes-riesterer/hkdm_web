@@ -8,12 +8,48 @@ and open the template in the editor.
     Author     : johannesriesterer
 */
 
+.hiddenImg {
+    display: none;
+}
+
+#cache {
+    display: none;
+}
+
 #slideshow {
-    position: relative;
-    top: 10%;
-    left: 10%;
-    right: 10%;
+ 
+    display: inline-block;
     width: 80%;
-    height: calc((width/16)*9);    
-   
+    height: calc(width * 16/9);    
+    background-color: black;
+ 
+}
+
+#menu {
+    width: 20%;
+    height: 10%;
+ 
+}
+
+.menu {
+     font-size: 1.5em;
+     transition:  font-size 0.3s linear;
+    
+}
+
+.menu:hover {
+    font-size: 2.5em;
+    transition:  font-size 0.3s linear;
+}
+
+.menu:active {
+    font-size: 3.5em;
+    transition:  font-size 0.1s linear;
+}
+
+#container {
+    width: 100%;
+    height: 100%;
+    background-color: black;
+  
 }

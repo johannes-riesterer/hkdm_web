@@ -6,16 +6,26 @@
 
 var canvas;
 var context;
+
+var dict = {};
+var image;
+
+dict["#image_1"] = 'images/image1.jpg'
+dict["#image_2"] = 'images/image2.jpg'
+
+
 //on document ready
 $(function() {
     canvas = document.getElementById('slideshow'),
     context = canvas.getContext('2d');
 
-    base_image = new Image();
-    base_image.src = "./images/image2.jpg";
+    image = new Image();
+    image.src = "./images/image1.jpg";
 
-    
-    var img=document.getElementById("scream");
+    image.onload = function () {
+            context.drawImage(image, 0, 0);
+     }
+    //var img=document.getElementById("img");
     
     /*
     img.src= "./images/image2.jpg";
@@ -25,7 +35,33 @@ $(function() {
     foo.appendChild(img);
     */
     
-    context.drawImage(scream, 0, 0);
-
+    //context.drawImage(img, 0, 0);
     
+   window.requestAnimationFrame(zoomIn);
 });
+
+
+function zoomIn() {
+    
+}
+
+//bind listeners dynamically to all nodes that implement class .menu
+$(document).on( "click", ".menu", function( event ) {
+        var hash = $(this).attr('data-hash-id');
+        var path = dict[hash];
+        
+
+        image.src = path;
+        
+        image.onload = function () {
+           var alpha = 0.0;
+           while(alpha <= 1.0) {
+                context.globalAlpha = 0.1;
+                context.drawImage(image, 0, 0);
+                alpha += 0.01;
+            
+          }
+        }
+     
+ });
+

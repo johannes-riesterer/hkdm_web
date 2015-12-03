@@ -7,8 +7,10 @@
 var canvas;
 var context;
 
+
 var dict = {};
 var image;
+var d;
 
 dict["#image_1"] = 'images/image1.jpg'
 dict["#image_2"] = 'images/image2.jpg'
@@ -36,7 +38,7 @@ $(function() {
     */
     
     //context.drawImage(img, 0, 0);
-    
+  
    window.requestAnimationFrame(zoomIn);
 });
 
@@ -49,19 +51,38 @@ function zoomIn() {
 $(document).on( "click", ".menu", function( event ) {
         var hash = $(this).attr('data-hash-id');
         var path = dict[hash];
-        
+         d = new Date();
+         context.globalAlpha = 0.1;
+         draw(0, d.getTime(), path);
+ });
 
+function draw(counter, prevTime, path) {
         image.src = path;
         
         image.onload = function () {
-           var alpha = 0.0;
-           while(alpha <= 1.0) {
-                context.globalAlpha = 0.1;
-                context.drawImage(image, 0, 0);
-                alpha += 0.01;
-            
-          }
+    
+    
+              context.drawImage(image, 0, 0);
+            if(counter < 80 ) {  
+               counter++;
+                d = new Date();
+               var currentTime = d.getTime();
+                var dt =   currentTime- prevTime;
+                var dif = (1000/25) - dt;
+                if(dif > 0) {
+                    setTimeout(function(){
+                         d = new Date();
+                        draw(counter,currentTime, path);
+                    }, dif);
+                }
+                else {
+                     d = new Date();
+                    draw(counter,currentTime, path);
+                }
+               
         }
-     
- });
-
+    
+          }
+          
+    
+}

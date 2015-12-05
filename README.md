@@ -2,6 +2,6 @@
 
 ##Links zu weiteren interessanten Themen und Materialien
 
-###HTML API (Application Programming Interface) und Tutorials
+###HTML5 API (Application Programming Interface) und Tutorials
 http://www.w3schools.com/ (JS, HTML, CSS3)
 

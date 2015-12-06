@@ -7,3 +7,5 @@
 ###HTML5 API (Application Programming Interface) und Tutorials
 http://www.w3schools.com/ (JS, HTML, CSS3)
 
+###Farrbpaletten und Design-Inspirationen vom feinsten
+http://www.colourlovers.com/

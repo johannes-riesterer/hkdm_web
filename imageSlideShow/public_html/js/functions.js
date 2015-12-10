@@ -12,6 +12,11 @@ var dict = {};
 var image;
 var d;
 
+var latestTimeStamp;
+
+var imgHeight;
+var imgWidth
+
 dict["#image_1"] = 'images/image1.jpg'
 dict["#image_2"] = 'images/image2.jpg'
 
@@ -39,11 +44,12 @@ $(function() {
     
     //context.drawImage(img, 0, 0);
   
-   window.requestAnimationFrame(zoomIn);
+   //window.requestAnimationFrame(zoomIn);
+   // setInterval(scroll, (1000/25));
 });
 
 
-function zoomIn() {
+function scroll() {
     
 }
 
@@ -53,17 +59,21 @@ $(document).on( "click", ".menu", function( event ) {
         var path = dict[hash];
          d = new Date();
          context.globalAlpha = 0.1;
-         draw(0, d.getTime(), path);
- });
-
-function draw(counter, prevTime, path) {
-        image.src = path;
+         latestTimeStamp = d.getTime();
+          image.src = path;
         
         image.onload = function () {
+         draw(0, d.getTime(), latestTimeStamp);
+     }
+ });
+
+function draw(counter, prevTime, timeStamp) {
+        if(timeStamp >= latestTimeStamp) {
+       
     
-    
-              context.drawImage(image, 0, 0);
-            if(counter < 80 ) {  
+               
+             context.drawImage(image,  0, 100, 800, 600, 0, 0, 1800, 1600);
+            if(counter < 80) {  
                counter++;
                 d = new Date();
                var currentTime = d.getTime();
@@ -72,17 +82,17 @@ function draw(counter, prevTime, path) {
                 if(dif > 0) {
                     setTimeout(function(){
                          d = new Date();
-                        draw(counter,currentTime, path);
+                        draw(counter,currentTime,timeStamp);
                     }, dif);
                 }
                 else {
                      d = new Date();
-                    draw(counter,currentTime, path);
+                    draw(counter,currentTime, timeStamp);
                 }
                
-        }
+             }
     
           }
-          
+      
     
 }

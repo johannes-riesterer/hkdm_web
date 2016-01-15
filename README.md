@@ -10,3 +10,6 @@ http://www.w3schools.com/ (JS, HTML, CSS3)
 
 ###Farbpaletten und Design-Inspirationen vom feinsten
 http://www.colourlovers.com/
+
+###Ein Imageslider nur mit css3
+https://codepen.io/dudleystorey/pen/ehKpi

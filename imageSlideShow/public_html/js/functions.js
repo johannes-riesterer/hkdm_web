@@ -69,10 +69,7 @@ $(document).on( "click", ".menu", function( event ) {
 
 function draw(counter, prevTime, timeStamp) {
         if(timeStamp >= latestTimeStamp) {
-       
-    
-               
-             context.drawImage(image,  0, 100, 800, 600, 0, 0, 1800, 1600);
+            context.drawImage(image,  0, 100, 800, 600, 0, 0, 1800, 1600);
             if(counter < 80) {  
                counter++;
                 d = new Date();
